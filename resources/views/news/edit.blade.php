@@ -18,7 +18,7 @@
             </div>
             <label for="item" class="col-sm-3 control-label">Текст</label>
             <div class="col-sm-6">
-                <textarea  name="text" id="item-name" class="form-control" value="{{$item->text}}"></textarea>
+                <textarea  name="text" id="item-name" class="form-control">{{$item->text}}</textarea>
             </div>
         </div>
         <!-- Кнопка добавления задачи -->

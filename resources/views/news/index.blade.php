@@ -25,8 +25,10 @@
         <table class="table table-striped task-table" >
             <!-- Заголовок таблицы -->
             <thead>
-            <th>Задача</th>
-            <th rowspan="3">Действие</th>
+            <th>Заголовок</th>
+            <th rowspan="3"></th>
+            <th>Действие</th>
+            <th></th>
             </thead>
             <!-- Тело таблицы -->
             <tbody>
@@ -37,12 +39,12 @@
                         <div>{{ $item->name }}</div>
                     </td>
                     <td>
-                        <a href="{{route('item_show',$item->id)}}"><button type="submit" class="btn btn-default bg-info">
+                        <a href="{{route('news_show',$item->id)}}"><button type="submit" class="btn btn-default bg-info">
                                 <i class="fa fa-book"></i> Читать
                             </button></a>  
                     </td>
                     <td>
-                        <form method="POST" action="{{route('item_destroy',$item->id)}}">
+                        <form method="POST" action="{{route('news_destroy',$item->id)}}">
                             {{csrf_field()}}
                             {{method_field('delete')}}
                             <button type="submit" class="btn btn-default bg-danger">
@@ -52,7 +54,7 @@
                     <td>
                         </form>
 
-                        <a href="{{route('item_edit',$item->id)}}"><button type="submit" class="btn btn-default bg-warning">
+                        <a href="{{route('news_edit',$item->id)}}"><button type="submit" class="btn btn-default bg-warning">
                                 <i class="fa fa-pen"></i> Редактировать
                             </button>
                         </a>

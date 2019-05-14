@@ -75,18 +75,18 @@ Route::group(['prefix' => 'news'], function() {
         return view('news.read', [
             'item' => $item, //значение переменной tasks спроецируется в переменную tasks внутри view
         ]);
-    })->name('item_show');
+    })->name('news_show');
 
     Route::delete('/{item}', function(News $item) {
         $item->delete();
         return redirect(route('news_index'));
-    })->name('item_destroy');
+    })->name('news_destroy');
 
     Route::get('/{item}/edit', function (News $item) {
         return view('news.edit', [
             'item' => $item,
         ]);
-    })->name('item_edit');
+    })->name('news_edit');
 
     Route::post('/', function(Request $request) {
         $validator = Validator::make($request->all(), [
@@ -110,14 +110,14 @@ Route::group(['prefix' => 'news'], function() {
                     'name' => 'required|max:255',
         ]);
         if ($validator->fails()) {
-            return redirect(route('item_edit', $item->id))
+            return redirect(route('news_edit', $item->id))
                             ->withInput()
                             ->withErrors($validator);
         }
         $item->name = $request->name;
         $item->text = $request->text;
         $item->save();
-        return redirect(route('tasks_index'));
+        return redirect(route('news_index'));
     })->name('news_update');
 
 });
